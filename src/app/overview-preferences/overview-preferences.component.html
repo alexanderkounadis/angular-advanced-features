@@ -1,0 +1,12 @@
+<div class="row" *ngFor="let p of profilePosts">
+    <app-overview-preferences-post 
+          [post]="p"
+          (postToModify)="checkForPostModification($event)">
+    </app-overview-preferences-post>
+  </div>
+  <div class="row pt-4 pb-4">
+      <div class="col-12 text-center">
+          <button class="mr-2" (click)="onCancel()">Ακύρωση</button>
+          <button [disabled]="postsToModify.length===0" (click)="onSave()">Eπιβεβαίωση</button>
+      </div>
+    </div>

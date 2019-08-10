@@ -1,0 +1,13 @@
+<div class="row col-12">
+  <div class="col-10 mt-2">
+    <div class="ml-2">
+      <span>{{post.Id}}</span>
+      <br />
+      <span>{{post.Title}}</span>
+    </div>
+  </div>
+  <div class="col-2 mt-2">
+    <mat-slide-toggle [checked]="post.ShowInOverview" (change)="hideUnhide(post, $event)">
+    </mat-slide-toggle>
+  </div>
+</div>

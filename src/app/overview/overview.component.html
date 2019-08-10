@@ -1,0 +1,36 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+<ng-container *ngIf="hasVisiblePosts && !showPreferencesPanel">
+    <div class="row" *ngFor="let post of myPosts">
+        <div class="col-md-3">
+          {{post.Id}}
+        </div>
+        <div class="col-md-3">
+          {{post.Title}}
+        </div>
+        <div class="col-md-3">
+          {{post.Author}}
+        </div>
+        <div class="col-md-3">
+          {{post.IsPreferred}}
+        </div>
+      </div>
+      <hr>
+      
+</ng-container>
+<div *ngIf="showPreferencesPanel">
+  <app-overview-preferences [profilePosts]="postsForProfilePreferences" 
+                            [updateAction]="updateAction" 
+                            (closePanel)="onClosePreferencesPanel($event)"> 
+  </app-overview-preferences>
+</div>
+
+<button (click)="showProfilePreferencesComponent()" 
+        class="btn btn-success" 
+        *ngIf="!loading && !profilePreferencesPanelIsOpened">Edit posts preferences</button>

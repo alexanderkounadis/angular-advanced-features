@@ -1,0 +1,54 @@
+{
+  "posts": [
+    {
+    "Code": "code1",
+    "Id": 1,
+    "ColorClass": "color1",
+    "TypeId": 34,
+    "Identifier": "ASas121321321",
+    "IsPreferred": true,
+    "Title": "title1",
+    "Author": "author1"
+    },
+    {
+    "Code": "code2",
+    "Id": 2,
+    "ColorClass": "color2",
+    "TypeId": 35,
+    "Identifier": "ASas11233456",
+    "IsPreferred": false,
+    "Title": "title2",
+    "Author": "author2"
+    },
+    {
+    "Code": "code3",
+    "Id": 3,
+    "ColorClass": "color3",
+    "TypeId": 36,
+    "Identifier": "ASas125434321321",
+    "IsPreferred": true,
+    "Title": "title3",
+    "Author": "author3"
+    },
+    {
+    "Code": "code4",
+    "Id": 4,
+    "ColorClass": "color4",
+    "TypeId": 38,
+    "Identifier": "Asdfsds121321321",
+    "IsPreferred": false,
+    "Title": "title4",
+    "Author": "author4"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
