@@ -1,2 +1,3 @@
-export class WizardFooter {
+export abstract class WizardFooter {
+    public currentIndex = 1;
 }

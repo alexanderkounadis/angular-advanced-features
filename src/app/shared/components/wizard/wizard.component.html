@@ -1,3 +1,46 @@
-<p>
-  wizard works!
-</p>
+<div class="wizard-current-index-{{currentIndex}}">
+  <div *ngIf="showProgressPanel" class="wizard-header container pb-3">
+    <div class="row mx-auto col-sm-8 pb-4">
+      <div class="col-sm wizard-step title" 
+           *ngFor="let title of wizardTitles; index as i" 
+           [ngClass]="{'text-left': i+1 === 1, 
+                       'text-center': i+1 !== 1 && 
+                       i !== lastIndex, 
+                       'text-right': i=== lastIndex}">
+                       {{title}}
+      </div>
+    </div>
+    <div class="row mx-auto col-sm-8 pl-4 pr-4">
+      <div class="progress pl-0 pr-0">
+        <div class="wizard-step loaded" [ngClass]="mdClass"></div>
+      </div>
+      <div class="col-sm wizard-step" *ngFor="let title of wizardTitles; index as i"
+      [ngClass]="{'text-left': i+1 === 1, 
+                  'text-center': i+1 !== 1 && 
+                    i !== lastIndex, 
+                    'text-right': i===lastIndex, 
+                    'icon-done': i<=currentIndex, 
+                    'icon-pending': i>currentIndex}">
+        <span class="dot text-center"><span class="inner-dot"></span></span>
+      </div>
+    </div>
+  </div>
+  <fieldset [disabled]="inProcess">
+    <ng-template appWizardRef></ng-template>
+    <div class="row actions-container">
+      <div class="col-md-12 text-center pt-4">
+        <div *ngIf="currentItem && currentItem.showNavigationPanel">
+          <button mat-button *ngIf="currentIndex!=0" 
+                  class="mr-2" 
+                  [ngClass]="{'accept-button':currentIndex === lastIndex, 
+                  'back-button': currentIndex !== lastIndex}" 
+                  (click)="previous()">Επιστροφή</button>
+          <button mat-button *ngIf="currentIndex!=lastIndex" 
+                  [disabled]="!currentItem || !currentItem.isValid()" 
+                  (click)="next()" 
+                  class="accept-button">Συνέχεια</button>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
